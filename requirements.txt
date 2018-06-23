@@ -47,7 +47,8 @@ django-celery-email==1.1.2
 django-cors-headers==1.1.0
 
 # cache
-django-redis
+#django-redis
+django-redis==4.5.0
 
 # fixture management
 django-smuggler==0.6.0
@@ -66,7 +67,8 @@ django-extensions
 raven
 
 # translation
-django-rosetta
+#django-rosetta
+django-rosetta==0.7.13
 
 # metrics
 influxdb==2.9.2
