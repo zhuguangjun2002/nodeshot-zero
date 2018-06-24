@@ -2,7 +2,9 @@ from django.contrib.gis.db import models
 from django.contrib.gis.geos.collections import GeometryCollection
 from django.contrib.gis.geos import GEOSException
 from django.utils.translation import ugettext_lazy as _
-from django.template.defaultfilters import slugify
+#from django.template.defaultfilters import slugify
+# use chinese slug replace English slug
+from uuslug import slugify
 
 from nodeshot.core.base.models import BaseAccessLevel
 from nodeshot.core.base.managers import HStoreGeoAccessLevelPublishedManager as NodeManager

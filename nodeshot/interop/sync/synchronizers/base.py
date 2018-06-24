@@ -5,7 +5,9 @@ import requests
 from xml.dom import minidom
 from dateutil import parser
 
-from django.template.defaultfilters import slugify
+#from django.template.defaultfilters import slugify
+# use chinese slug replace English slug
+from uuslug import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 
