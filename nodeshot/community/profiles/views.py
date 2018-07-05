@@ -208,6 +208,11 @@ class AccountLogin(generics.GenericAPIView):
     def post(self, request, format=None):
         """ authenticate """
         serializer = self.serializer_class(data=request.data)
+        # zhuguangjun test for cookie
+        print ">>>> start login"
+        if request.session.test_cookie_worked():
+            print ">>>> TEST COOKIE WORKED!"
+            request.session.delete_test_cookie()
 
         if serializer.is_valid():
             login(request, serializer.instance)
