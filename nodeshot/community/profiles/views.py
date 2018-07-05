@@ -208,6 +208,7 @@ class AccountLogin(generics.GenericAPIView):
     def post(self, request, format=None):
         # zhuguangjun test for cookie
         print ">>>> start login"
+        for key, value in request.session.items(): print('{} => {}'.format(key, value))
         if request.session.test_cookie_worked():
             print ">>>> TEST COOKIE WORKED!"
             request.session.delete_test_cookie()

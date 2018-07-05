@@ -86,3 +86,9 @@ if 'nodeshot.ui.default' in settings.INSTALLED_APPS:
 urlpatterns += patterns('',
     url(r'^jsi18n/$', 'nodeshot.core.base.views.jsi18n', {'packages': ('nodeshot.ui.default',)}, name='jsi18n')
 )
+
+if settings.DEBUG:
+   import debug_toolbar
+   urlpatterns += [
+       url(r'^__debug__/', include(debug_toolbar.urls)),
+   ]

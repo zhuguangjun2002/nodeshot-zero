@@ -32,6 +32,7 @@ else:
 def index(request):
     # zhuguangjun test for cookie
     print ">>>> start index"
+    for key, value in request.session.items(): print('{} => {}'.format(key, value))
     # test cookie
     request.session.set_test_cookie()
     # django-rest-framework serializer context

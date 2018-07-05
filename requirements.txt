@@ -78,4 +78,7 @@ tld
 pyOpenSSL==16.2.0
 
 # slug for chinese
-django-uuslug == 1.1.8
+django-uuslug==1.1.8
+
+# for debug toolbar
+django-debug-toolbar==1.9.1
