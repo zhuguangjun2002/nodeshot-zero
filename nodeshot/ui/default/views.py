@@ -47,8 +47,10 @@ def index(request):
     menu = MenuSerializer(menu, many=True, context=serializer_context).data
     # initialize user serializer if authenticated
     if request.user.is_authenticated():
+        print 'user is authenticated.'
         user = ProfileOwnSerializer(request.user, many=False, context=serializer_context).data
     else:
+        print 'user is not authenticated.'
         user = {}
     # add link legend
     if LINKS_ENABLED:
@@ -110,4 +112,8 @@ def index(request):
         # metrics
         'METRICS_ENABLED': ui_settings.METRICS_ENABLED
     }
+    print ">>>>> index.html context:"
+    print context
+    print ">>>>> index.html context['user']"
+    print context['user']
     return render(request, 'index.html', context)

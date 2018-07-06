@@ -217,12 +217,22 @@ class AccountLogin(generics.GenericAPIView):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
+            print ">>>>> serializer is valid, can login"
             login(request, serializer.instance)
-
-            if request.data.get('remember'):
+            print ">>>> request.data"
+            print request.data
+            print ">>>> request.data.get('remember')"
+            print request.data.get('remember')
+            # zhuguangjun comment out this line
+            # if request.data.get('remember'):
+            # zhuguangjun use this line
+            if request.data.get('remember') == 'true':
+                print '>>>>> set session 3 weeks'
+                for key, value in request.session.items(): print('{} => {}'.format(key, value))
                 # TODO: remember configurable
                 request.session.set_expiry(60 * 60 * 24 * 7 * 3)
             else:
+                print '>>>>> set session set_expiry(0)'
                 request.session.set_expiry(0)
 
             return Response({
